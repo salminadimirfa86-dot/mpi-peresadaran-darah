@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MPI Peredaran Darah SMA</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- App Bar Header -->
+  <header class="app-header">
+    <div class="header-title">🩸 BioMobile: Peredaran Darah</div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-content">
+    
+    <!-- Screen 1: Beranda -->
+    <section id="screen-home" class="screen active">
+      <div class="card hero-card">
+        <h2>Sistem Peredaran Darah</h2>
+        <p>Kelas XI SMA - Biologi</p>
+        <button class="btn btn-primary" onclick="navigateTo('screen-materi')">Mulai Belajar</button>
+      </div>
+      <div class="card nav-menu">
+        <button class="menu-item" onclick="navigateTo('screen-materi')">📖 Materi Pembelajaran</button>
+        <button class="menu-item" onclick="navigateTo('screen-kuis')">📝 Kuis Interaktif</button>
+      </div>
+    </section>
+
+    <!-- Screen 2: Materi -->
+    <section id="screen-materi" class="screen">
+      <!-- Tab Bar Materi -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('darah')">Darah</button>
+        <button class="tab-btn" onclick="switchTab('jantung')">Jantung</button>
+        <button class="tab-btn" onclick="switchTab('sirkulasi')">Sirkulasi</button>
+      </div>
+
+      <!-- Tab Content: Darah -->
+      <div id="tab-darah" class="tab-content active">
+        <div class="card">
+          <h3>Komponen Darah</h3>
+          <p>Darah terdiri dari dua komponen utama:</p>
+          <ul>
+            <li><strong>Plasma Darah (55%):</strong> Cairan penampung nutrisi, hormon, dan limbah.</li>
+            <li><strong>Sel-sel Darah (45%):</strong>
+              <ul>
+                <li><em>Eritrosit (Sel Darah Merah):</em> Mengangkut $O_2$ menggunakan hemoglobin.</li>
+                <li><em>Leukosit (Sel Darah Putih):</em> Pertahanan & kekebalan tubuh.</li>
+                <li><em>Trombosit (Keping Darah):</em> Proses pembekuan darah.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content: Jantung -->
+      <div id="tab-jantung" class="tab-content">
+        <div class="card">
+          <h3>Struktur Jantung</h3>
+          <p>Jantung manusia memiliki 4 ruang utama:</p>
+          <div class="grid-2">
+            <div class="info-box"><strong>Atrium Kanan:</strong> Menerima darah kaya $CO_2$ dari tubuh.</div>
+            <div class="info-box"><strong>Atrium Kiri:</strong> Menerima darah kaya $O_2$ dari paru-paru.</div>
+            <div class="info-box"><strong>Ventrikel Kanan:</strong> Memompa darah $CO_2$ ke paru-paru.</div>
+            <div class="info-box"><strong>Ventrikel Kiri:</strong> Memompa darah $O_2$ ke seluruh tubuh.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Sirkulasi -->
+      <div id="tab-sirkulasi" class="tab-content">
+        <div class="card">
+          <h3>Jalur Peredaran Darah</h3>
+          <div class="info-box alt">
+            <strong>1. Peredaran Darah Kecil (Pulmonalis)</strong>
+            <p>Jantung (Ventrikel Kanan) $\rightarrow$ Paru-paru $\rightarrow$ Jantung (Atrium Kiri)</p>
+          </div>
+          <div class="info-box alt">
+            <strong>2. Peredaran Darah Besar (Sistemik)</strong>
+            <p>Jantung (Ventrikel Kiri) $\rightarrow$ Seluruh Tubuh $\rightarrow$ Jantung (Atrium Kanan)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: Kuis -->
+    <section id="screen-kuis" class="screen">
+      <div id="quiz-box" class="card">
+        <div class="quiz-header">
+          <span id="quiz-progress">Soal 1 dari 3</span>
+        </div>
+        <h3 id="quiz-question">Pertanyaan kuis akan tampil di sini...</h3>
+        <div id="quiz-options" class="quiz-options">
+          <!-- Pilihan jawaban di-inject via JS -->
+        </div>
+      </div>
+
+      <!-- Result Box -->
+      <div id="quiz-result" class="card hidden">
+        <h3>Hasil Kuis</h3>
+        <p id="score-text">Skor Anda: 0</p>
+        <button class="btn btn-primary" onclick="restartQuiz()">Ulangi Kuis</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="navigateTo('screen-home')" id="nav-home">
+      <span>🏠</span>
+      <small>Beranda</small>
+    </button>
+    <button class="nav-btn" onclick="navigateTo('screen-materi')" id="nav-materi">
+      <span>📖</span>
+      <small>Materi</small>
+    </button>
+    <button class="nav-btn" onclick="navigateTo('screen-kuis')" id="nav-kuis">
+      <span>📝</span>
+      <small>Kuis</small>
+    </button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
